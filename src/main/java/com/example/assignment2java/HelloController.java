@@ -22,7 +22,9 @@ public class HelloController {
     void initialize()
     {
         HelloApplicationModel.InitializeCount();
+        pointsper.setText(HelloApplicationModel.PointsValues());
         System.out.println("Initialized.");
+
     }
     @FXML
     void buttonPressed(ActionEvent event) {
@@ -43,11 +45,9 @@ public class HelloController {
             HelloApplicationModel.Counter(sb);
             letters.setText(HelloApplicationModel.getCounter());
 
-            HelloApplicationModel.Points(sb);
-            points.setText(HelloApplicationModel.getPoints());
+            points.setText(HelloApplicationModel.Points(sb));
 
             character.setText(HelloApplicationModel.words(sb));
-            pointsper.setText(HelloApplicationModel.PointsValues());
             System.out.println("Run Complete.");
 
         }

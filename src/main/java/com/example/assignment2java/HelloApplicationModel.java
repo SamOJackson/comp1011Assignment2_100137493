@@ -119,8 +119,9 @@ public class HelloApplicationModel {
         points2.put("Z",10);
         return points2.toString();
     }
-    public static void Points(StringBuilder sb){
+    public static String Points(StringBuilder sb){
         String string = sb.toString().toUpperCase();
+        String finalPoints = "";
         for(int i=0; i< sb.length(); i++){
             char c = string.charAt(i);
             StringBuilder q = new StringBuilder();
@@ -131,12 +132,10 @@ public class HelloApplicationModel {
                 int pointsValue = points2.get(p);
                 points = points + pointsValue;
                 System.out.println(points);
+                finalPoints = String.valueOf(points);
             }
             q.setLength(0);
         }
-    }
-    public static String getPoints(){
-        String finalPoints = String.valueOf(points);
         return finalPoints;
     }
     public static String words(StringBuilder sb){
