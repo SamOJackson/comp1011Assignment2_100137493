@@ -42,8 +42,9 @@ public class HelloController {
         }
         else if (!(((sb.toString().toUpperCase().contains("A") || sb.toString().toUpperCase().contains("E") || sb.toString().toUpperCase().contains("I") || sb.toString().toUpperCase().contains("O") || input.getText().toUpperCase().contains("U") || sb.toString().toUpperCase().contains("Y")) && sb.toString().toUpperCase().length() > 2) && sb.toString().toUpperCase().length() < 8)) {
             invalid.setText("Invalid Word");
-        } else if (HelloApplicationModel.getWords().contains(input.getText().toUpperCase())) {
+        } else if (HelloApplicationModel.getWords().contains(input.getText().toUpperCase()) && HelloApplicationModel.getWords().length() == sb.length()) {
             invalid.setText("Invalid Word");
+
         } else {
             HelloApplicationModel.Counter(sb);
             letters.setText(HelloApplicationModel.getCounter());
