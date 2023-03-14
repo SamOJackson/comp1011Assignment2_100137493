@@ -9,9 +9,11 @@ public class HelloController {
     private TextField input;
     @FXML
     private TextArea character;
-    @FXML
+    /*@FXML
     private TextArea pointsper;
+    */
     @FXML
+
     private TextField points;
     @FXML
     private TextArea letters;
@@ -22,7 +24,8 @@ public class HelloController {
     void initialize()
     {
         HelloApplicationModel.InitializeCount();
-        pointsper.setText(HelloApplicationModel.PointsValues());
+        //pointsper.setText(HelloApplicationModel.PointsValues());
+        HelloApplicationModel.PointsValues();
         System.out.println("Initialized.");
 
     }
@@ -37,9 +40,9 @@ public class HelloController {
         if (HelloApplicationModel.getAllValues(HelloApplicationModel.count2) == false){
             invalid.setText("Game Over");
         }
-        else if (!(((input.getText().toUpperCase().contains("A") || input.getText().toUpperCase().contains("E") || input.getText().toUpperCase().contains("I") || input.getText().toUpperCase().contains("O") || input.getText().toUpperCase().contains("U") || input.getText().toUpperCase().contains("Y")) && input.getText().toUpperCase().length() > 2) && input.getText().toUpperCase().length() < 8)) {
+        else if (!(((sb.toString().toUpperCase().contains("A") || sb.toString().toUpperCase().contains("E") || sb.toString().toUpperCase().contains("I") || sb.toString().toUpperCase().contains("O") || input.getText().toUpperCase().contains("U") || sb.toString().toUpperCase().contains("Y")) && sb.toString().toUpperCase().length() > 2) && sb.toString().toUpperCase().length() < 8)) {
             invalid.setText("Invalid Word");
-        } else if (HelloApplicationModel.getWords().contains(input.getText())) {
+        } else if (HelloApplicationModel.getWords().contains(input.getText().toUpperCase())) {
             invalid.setText("Invalid Word");
         } else {
             HelloApplicationModel.Counter(sb);
@@ -51,6 +54,7 @@ public class HelloController {
             System.out.println("Run Complete.");
 
         }
+    sb.setLength(0);
     }
 }
 

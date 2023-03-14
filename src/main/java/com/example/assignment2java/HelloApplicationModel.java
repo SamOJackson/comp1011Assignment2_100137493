@@ -53,7 +53,6 @@ public class HelloApplicationModel {
             if(count2.containsKey(t)){
                count2.replace(t,value,value -1);
             }
-
             s.setLength(0);
         }
     }
@@ -143,6 +142,6 @@ public class HelloApplicationModel {
         return words.toString();
     }
     public static String getWords() {
-        return words.toString();
+        return words.toString().toUpperCase();
     }
 }
