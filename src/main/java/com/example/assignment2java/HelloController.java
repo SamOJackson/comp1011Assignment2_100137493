@@ -28,6 +28,7 @@ public class HelloController {
     }
     @FXML
     void buttonPressed(ActionEvent event) {
+        invalid.setText("");
         StringBuilder sb = new StringBuilder();
         sb.append(input.getText());
 
@@ -40,7 +41,11 @@ public class HelloController {
         else if (!(((input.getText().toUpperCase().contains("A") || input.getText().toUpperCase().contains("E") || input.getText().toUpperCase().contains("I") || input.getText().toUpperCase().contains("O") || input.getText().toUpperCase().contains("U") || input.getText().toUpperCase().contains("Y")) && input.getText().toUpperCase().length() > 2) && input.getText().toUpperCase().length() < 8)) {
             invalid.setText("Invalid Word");
         } else if (HelloApplicationModel.getWords().contains(input.getText())) {
-            invalid.setText("Invalid Word");
+            for(String s :HelloApplicationModel.words) {
+                if(s.length() == sb.length()){
+                    invalid.setText("Invalid Word");
+                }
+            }
         } else {
             HelloApplicationModel.Counter(sb);
             letters.setText(HelloApplicationModel.getCounter());
